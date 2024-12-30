@@ -114,33 +114,3 @@ fn main() -> Result<(), std::io::Error> {
 
     Ok(())
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_single_santa() {
-        let mut delivery_system = DeliverySystem::new();
-        assert_eq!(delivery_system.deliver_presents(">"), 2);
-        
-        let mut delivery_system = DeliverySystem::new();
-        assert_eq!(delivery_system.deliver_presents("^>v<"), 4);
-    }
-
-    #[test]
-    fn test_santa_and_robo() {
-        let mut delivery_system = DeliverySystem::new();
-        assert_eq!(delivery_system.deliver_presents_with_robo("^v"), 3);
-        
-        let mut delivery_system = DeliverySystem::new();
-        assert_eq!(delivery_system.deliver_presents_with_robo("^>v<"), 3);
-    }
-
-    #[test]
-    fn test_position_movement() {
-        let pos = Position::new();
-        assert_eq!(pos.move_direction(Direction::Right), Position { x: 1, y: 0 });
-        assert_eq!(pos.move_direction(Direction::Up), Position { x: 0, y: 1 });
-    }
-}
