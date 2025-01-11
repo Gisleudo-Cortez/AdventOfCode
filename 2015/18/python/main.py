@@ -37,7 +37,7 @@ def simulate_step(data: List[List[str]], stuck: bool = False) -> Tuple[List[List
         for c in range(cols):
 
             curr_pos = (r,c)
-            n_on_neighbors = 0
+            n_on_lights = 0
 
             # Skip if it's a stuck corner light
             if stuck and ((r == 0 and c == 0) or 
@@ -53,13 +53,13 @@ def simulate_step(data: List[List[str]], stuck: bool = False) -> Tuple[List[List
                 if not (0 <= rx < rows and 0 <= cy < cols):
                     continue
                 if simulated[rx][cy] == "#":
-                    n_on_neighbors += 1
+                    n_on_lights += 1
 
             # switch logic
-            if simulated[curr_pos[0]][curr_pos[1]] == "#" and not n_on_neighbors in [2,3]:
+            if simulated[curr_pos[0]][curr_pos[1]] == "#" and not n_on_lights in [2,3]:
                 new_grid[curr_pos[0]][curr_pos[1]] = "."
 
-            if simulated[curr_pos[0]][curr_pos[1]] == "." and n_on_neighbors == 3:
+            if simulated[curr_pos[0]][curr_pos[1]] == "." and n_on_lights == 3:
                 new_grid[curr_pos[0]][curr_pos[1]] = "#"
 
     lights_on = sum(row.count("#") for row in new_grid)
