@@ -33,4 +33,4 @@ The primary goal of this repository is to master each programming language used 
 
 ## Acknowledgments
 
-A big thank you to [Advent of Code](https://adventofcode.com/) and its creator, [Eric Wastl](https://was.tl/), for providing these amazing challenges!
+A big thank you to its creator, [Eric Wastl](https://was.tl/), for providing these amazing challenges!
