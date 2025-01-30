@@ -23,7 +23,7 @@ fn calculate_parsed_length(raw: &str) -> i32 {
     }
     length
 }
-
+// Why this does't work????
 fn calculate_encoded_length(raw: &str) -> i32 {
     let mut length: i32= 2;
     for c in raw.chars(){
@@ -80,3 +80,48 @@ fn main() {
     println!("Total Parsed length: {}", encoded);
     println!("Difference: {}", encoded - raw_2);
 }
+
+// use std::fs;
+
+// fn main() {
+//     let input = fs::read_to_string("input.txt").expect("Failed to read input file");
+//     let part1 = input.lines().map(|line| line.len() - memory_length(line)).sum::<usize>();
+//     let part2 = input.lines().map(|line| encoded_length(line) - line.len()).sum::<usize>();
+    
+//     println!("Part 1: {}", part1);
+//     println!("Part 2: {}", part2);
+// }
+
+// fn memory_length(s: &str) -> usize {
+//     let mut chars = s.chars();
+//     let mut count = 0;
+    
+//     assert_eq!(chars.next(), Some('"'));
+//     while let Some(c) = chars.next() {
+//         match c {
+//             '\\' => match chars.next() {
+//                 Some('"') | Some('\\') => count += 1,
+//                 Some('x') => {
+//                     chars.next();
+//                     chars.next();
+//                     count += 1;
+//                 }
+//                 _ => unreachable!(),
+//             },
+//             '"' => break,
+//             _ => count += 1,
+//         }
+//     }
+//     count
+// }
+
+// fn encoded_length(s: &str) -> usize {
+//     let mut count = 2; // Opening and closing quotes
+//     for c in s.chars() {
+//         match c {
+//             '"' | '\\' => count += 2,
+//             _ => count += 1,
+//         }
+//     }
+//     count
+// }
