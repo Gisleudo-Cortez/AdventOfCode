@@ -1,0 +1,6 @@
+[package]
+name = "aoc_AdventOfCode_2015_day_10_rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
