@@ -1,5 +1,5 @@
 [package]
-name = "aoc_AdventOfCode_2015_day_04_rust"
+name = "aoc_AdventOfCode_2015_day_4_rust"
 version = "0.1.0"
 edition = "2021"
 

@@ -40,9 +40,10 @@ fn part_2() -> Result<(), Box<dyn Error>> {
 
 
 fn main(){
-    println!("Part 1");
-    part_1();
-    println!("Part 2");
-    part_2();
+    let sep = "=".repeat(20);
+    println!("{} Part 1 {}", sep, sep);
+    let _ = part_1();
+    println!("{} Part 2 {}", sep, sep);
+    let _ = part_2();
     }
   
