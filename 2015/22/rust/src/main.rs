@@ -144,11 +144,9 @@ fn find_least_mana_to_win(player_hp: i32, player_mana: i32, boss_hp: i32, boss_d
             let damage_taken = (new_state.boss_damage - new_state.armor).max(1);
             new_state.player_hp -= damage_taken;
 
-            if new_state.player_hp > 0 {
-                if !seen.contains_key(&new_state) {
-                    seen.insert(new_state.clone(), new_state.mana_spent);
-                    queue.push(new_state);
-                }
+            if new_state.player_hp > 0 && !seen.contains_key(&new_state) {
+                seen.insert(new_state.clone(), new_state.mana_spent);
+                queue.push(new_state);
             }
         }
     }
