@@ -36,7 +36,7 @@ fn increment_password(password: &str) -> String {
     let mut chars: Vec<char> = password.chars().collect();
     let mut i = chars.len() - 1;
     
-    while i >= 0 {
+    while i as i32 >= 0 {
         let mut next_char = ((chars[i] as u8 - b'a' + 1) % 26 + b'a') as char;
 
         if FORBIDEN.contains(&next_char) {
