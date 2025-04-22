@@ -22,6 +22,7 @@ fn is_unique(phrase: Vec<String>) -> bool {
     true
 }
 
+/*
 fn are_anagrams(a: &str, b: &str) -> bool {
     let mut ch1: Vec<char> = a.to_lowercase().chars().collect();
     let mut ch2: Vec<char> = b.to_lowercase().chars().collect();
@@ -41,6 +42,20 @@ fn is_anagram(phrase: Vec<String>) -> bool {
     }
     true // there are no anagrams and the passphrase is valid
 }
+*/
+
+fn is_anagram(phrase: Vec<String>) -> bool {
+    let mut seen = HashSet::new();
+    for word in phrase {
+        let mut chars: Vec<char> = word.to_lowercase().chars().collect();
+        chars.sort();
+        let sorted = chars.into_iter().collect::<String>();
+        if !seen.insert(sorted) {
+            return false;
+        }
+    }
+    true
+}
 
 fn solve_part1(path: &str) -> i32 {
     let mut count = 0;
@@ -52,7 +67,7 @@ fn solve_part1(path: &str) -> i32 {
     }
     count
 }
-
+/*
 fn solve_part2(path: &str) -> i32 {
     let mut count = 0;
     let list = parse_input(path);
@@ -62,6 +77,14 @@ fn solve_part2(path: &str) -> i32 {
         }
     }
     count
+}
+*/
+
+fn solve_part2(path: &str) -> usize {
+    parse_input(path)
+        .into_iter()
+        .filter(|phrase| is_unique(phrase.clone()) && is_anagram(phrase.clone()))
+        .count()
 }
 
 fn main() {
